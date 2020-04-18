@@ -1,0 +1,15 @@
+D:\Apps\Star Gazer\Star Gazer\bin\Debug\Star Gazer.exe.config
+D:\Apps\Star Gazer\Star Gazer\bin\Debug\Star Gazer.exe
+D:\Apps\Star Gazer\Star Gazer\bin\Debug\Star Gazer.pdb
+D:\Apps\Star Gazer\Star Gazer\obj\Debug\Star Gazer.csprojAssemblyReference.cache
+D:\Apps\Star Gazer\Star Gazer\obj\Debug\MainWindow.g.cs
+D:\Apps\Star Gazer\Star Gazer\obj\Debug\App.g.cs
+D:\Apps\Star Gazer\Star Gazer\obj\Debug\Star Gazer_MarkupCompile.cache
+D:\Apps\Star Gazer\Star Gazer\obj\Debug\Star Gazer_MarkupCompile.lref
+D:\Apps\Star Gazer\Star Gazer\obj\Debug\MainWindow.baml
+D:\Apps\Star Gazer\Star Gazer\obj\Debug\Star Gazer.g.resources
+D:\Apps\Star Gazer\Star Gazer\obj\Debug\Star_Gazer.Properties.Resources.resources
+D:\Apps\Star Gazer\Star Gazer\obj\Debug\Star Gazer.csproj.GenerateResource.cache
+D:\Apps\Star Gazer\Star Gazer\obj\Debug\Star Gazer.csproj.CoreCompileInputs.cache
+D:\Apps\Star Gazer\Star Gazer\obj\Debug\Star Gazer.exe
+D:\Apps\Star Gazer\Star Gazer\obj\Debug\Star Gazer.pdb
