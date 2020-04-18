@@ -5,17 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Star_Gazer"
         mc:Ignorable="d"
-        Title="Star Gazer" Height="450" Width="800" WindowState="Maximized" ResizeMode="NoResize" Topmost="True" WindowStyle="None" Background="#00000000" AllowsTransparency="True" PreviewKeyDown="sGazer_PreviewKeyDown">
-    <Grid x:Name="grid1" Background="#72000000">
-        <TextBox x:Name="textBox" Margin="10,125,10,265" SelectionOpacity="0.5" BorderThickness="2" Foreground="White" Background="#CC272727" SelectionBrush="#FF686868" BorderBrush="#E5292828" TextAlignment="Center" FontWeight="ExtraLight" FontStretch="SemiCondensed" TextOptions.TextHintingMode="Animated" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Width="780" VerticalAlignment="Center" Height="60" LostFocus="textBox_LostFocus" TextChanged="textBox_TextChanged">
+        Title="Star Gazer" Height="450" Width="800" WindowState="Maximized" ResizeMode="NoResize" Topmost="True" WindowStyle="None" Background="#00000000" AllowsTransparency="True" PreviewKeyDown="sGazer_PreviewKeyDown" SizeChanged="sGazer_SizeChanged">
+    <Grid x:Name="grid1" Background="#BF000000">
+        <TextBox x:Name="textBox" Margin="10,125,10,265" SelectionOpacity="0.5" BorderThickness="2" Foreground="White" Background="#CC272727" SelectionBrush="#FF686868" BorderBrush="#E5292828" TextAlignment="Center" FontWeight="Thin" FontStretch="SemiCondensed" TextOptions.TextHintingMode="Animated" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Width="780" VerticalAlignment="Center" Height="60" LostFocus="textBox_LostFocus" TextChanged="textBox_TextChanged">
             <TextBox.Effect>
-                <DropShadowEffect ShadowDepth="20" BlurRadius="10" Opacity="0.60"/>
+                <DropShadowEffect ShadowDepth="5" BlurRadius="10" Opacity="0.60" Direction="270" Color="#FF1F1F1F"/>
             </TextBox.Effect>
         </TextBox>
         <Label x:Name="label" Content="Search" HorizontalAlignment="Center" Margin="10,125,10,265" VerticalAlignment="Center" Width="780" Height="60" Background="#00000000" Foreground="#FF646464" FontSize="28" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MouseDown="label_MouseDown"/>
-        <ListBox x:Name="listBox" HorizontalAlignment="Center" Height="246" Margin="10,185,10,19" VerticalAlignment="Center" Width="780" Background="#FF272727" Foreground="White" BorderBrush="#FF2B2B2B" Visibility="Collapsed">
+        <ListBox x:Name="listBox" HorizontalAlignment="Center" Height="246" Margin="10,193,10,11" VerticalAlignment="Center" Width="780" Background="#FF272727" Foreground="White" BorderBrush="#FF2B2B2B" Visibility="Collapsed" HorizontalContentAlignment="Center" VerticalContentAlignment="Top">
             <ListBox.Effect>
-                <DropShadowEffect ShadowDepth="20" BlurRadius="10" Opacity="0.60"/>
+                <DropShadowEffect ShadowDepth="5" BlurRadius="10" Opacity="0.60" Direction="270" Color="#FF1F1F1F"/>
             </ListBox.Effect>
         </ListBox>
 

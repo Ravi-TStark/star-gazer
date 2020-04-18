@@ -13,3 +13,20 @@ D:\Apps\Star Gazer\Star Gazer\obj\Debug\Star Gazer.csproj.GenerateResource.cache
 D:\Apps\Star Gazer\Star Gazer\obj\Debug\Star Gazer.csproj.CoreCompileInputs.cache
 D:\Apps\Star Gazer\Star Gazer\obj\Debug\Star Gazer.exe
 D:\Apps\Star Gazer\Star Gazer\obj\Debug\Star Gazer.pdb
+D:\Git\star-gazer\Star Gazer\bin\Debug\Star Gazer.exe.config
+D:\Git\star-gazer\Star Gazer\bin\Debug\Star Gazer.exe
+D:\Git\star-gazer\Star Gazer\bin\Debug\Star Gazer.pdb
+D:\Git\star-gazer\Star Gazer\obj\Debug\Star Gazer.csprojAssemblyReference.cache
+D:\Git\star-gazer\Star Gazer\obj\Debug\MainWindow.g.cs
+D:\Git\star-gazer\Star Gazer\obj\Debug\App.g.cs
+D:\Git\star-gazer\Star Gazer\obj\Debug\Star Gazer_MarkupCompile.cache
+D:\Git\star-gazer\Star Gazer\obj\Debug\Star Gazer_MarkupCompile.lref
+D:\Git\star-gazer\Star Gazer\obj\Debug\MainWindow.baml
+D:\Git\star-gazer\Star Gazer\obj\Debug\Star Gazer.g.resources
+D:\Git\star-gazer\Star Gazer\obj\Debug\Star_Gazer.Properties.Resources.resources
+D:\Git\star-gazer\Star Gazer\obj\Debug\Star Gazer.csproj.GenerateResource.cache
+D:\Git\star-gazer\Star Gazer\obj\Debug\Star Gazer.csproj.CoreCompileInputs.cache
+D:\Git\star-gazer\Star Gazer\obj\Debug\Star Gazer.exe
+D:\Git\star-gazer\Star Gazer\obj\Debug\Star Gazer.pdb
+D:\Git\star-gazer\Star Gazer\obj\Debug\SearchListItem.g.cs
+D:\Git\star-gazer\Star Gazer\obj\Debug\SearchListItem.baml

@@ -58,6 +58,10 @@ namespace Star_Gazer
                 label.Visibility = Visibility.Hidden;
                 textBox.Focus();
             }
+            if(listBox.Visibility == Visibility.Visible && (e.Key == Key.Down || e.Key==Key.Up) && (listBox.IsKeyboardFocused == false) && (textBox.IsFocused))
+            {
+                listBox.Focus();
+            }
         }
 
         private void textBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -69,7 +73,25 @@ namespace Star_Gazer
             else
             {
                 listBox.Visibility = Visibility.Visible;
+                listBox.Items.Clear();
+                if(listBox.Items.Count == 0)
+                {
+                    var item = new SearchListItem();
+                    item.Width = listBox.Width-15;
+                    item.Height = 64;
+                    listBox.Items.Add(item);
+                    item = new SearchListItem();
+                    item.Width = listBox.Width - 15;
+                    item.Height = 64;
+                    listBox.Items.Add(item);
+                }
             }
+        }
+
+        private void sGazer_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            sGazer.MaxHeight = SystemParameters.WorkArea.Height;
+            sGazer.MaxWidth = SystemParameters.WorkArea.Width;
         }
     }
 }

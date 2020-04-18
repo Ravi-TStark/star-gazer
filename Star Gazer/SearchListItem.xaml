@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="Star_Gazer.SearchListItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Star_Gazer"
+             mc:Ignorable="d" 
+             d:DesignHeight="63.75" d:DesignWidth="649.062">
+    <Grid Background="#00000000">
+        <Label x:Name="label" Content="Label" Margin="70,0,0,10" Foreground="White" VerticalContentAlignment="Center" FontSize="22" FontWeight="ExtraLight" Padding="30,5,5,5"/>
+        <Label x:Name="label2" Content="Label" Margin="70,25,0,0" Foreground="LightGray" VerticalContentAlignment="Center" FontSize="12" FontWeight="ExtraLight" Padding="30,5,5,5"/>
+    </Grid>
+</UserControl>
