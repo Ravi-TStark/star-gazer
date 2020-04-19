@@ -6,8 +6,9 @@
              xmlns:local="clr-namespace:Star_Gazer"
              mc:Ignorable="d" 
              d:DesignHeight="63.75" d:DesignWidth="649.062">
-    <Grid Background="#00000000">
+    <Grid Background="#00000000" MouseDown="Grid_MouseDown">
         <Label x:Name="label" Content="Label" Margin="70,0,0,10" Foreground="White" VerticalContentAlignment="Center" FontSize="22" FontWeight="ExtraLight" Padding="30,5,5,5"/>
-        <Label x:Name="label2" Content="Label" Margin="70,25,0,0" Foreground="LightGray" VerticalContentAlignment="Center" FontSize="12" FontWeight="ExtraLight" Padding="30,5,5,5"/>
+        <Label x:Name="label2" Content="Label" Margin="70,35,0,11" Foreground="Gray" VerticalContentAlignment="Center" FontSize="12" FontWeight="ExtraLight" Padding="30,0,0,0" Cursor="Hand" MouseDown="label2_MouseDown"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Width="44" Margin="10,10,0,10" Stretch="None"/>
     </Grid>
 </UserControl>
