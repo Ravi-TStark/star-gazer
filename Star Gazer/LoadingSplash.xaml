@@ -1,0 +1,18 @@
+﻿<Window x:Name="splash" x:Class="Star_Gazer.LoadingSplash"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Star_Gazer"
+        mc:Ignorable="d"
+        Title="LoadingSplash" Height="450" Width="800" WindowStyle="None" Background="#CC000000" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" ShowInTaskbar="False" AllowsTransparency="True">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="—Pngtree—white dot dream effect decoration_4616391.png" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Label x:Name="label" Content="Star Gazer" HorizontalAlignment="Center" Margin="245,114,244,212" VerticalAlignment="Center" Height="116" Width="303" FontSize="45" Foreground="White" FontWeight="Thin" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label x:Name="label1" Content="Loading" HorizontalAlignment="Center" Margin="370,230,369,186" VerticalAlignment="Center" Foreground="#FFB2B2B2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <ProgressBar x:Name="progressBar" Height="6" VerticalAlignment="Bottom" Background="#FF515151" BorderBrush="#00BCBCBC" Foreground="White" IsIndeterminate="True"/>
+
+    </Grid>
+</Window>

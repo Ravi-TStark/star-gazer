@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("file_96px_1.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("%e2%80%94pngtree%e2%80%94white%20dot%20dream%20effect%20decoration_4616391.png")]
 
 

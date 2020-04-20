@@ -30,3 +30,9 @@ D:\Git\star-gazer\Star Gazer\obj\Debug\Star Gazer.exe
 D:\Git\star-gazer\Star Gazer\obj\Debug\Star Gazer.pdb
 D:\Git\star-gazer\Star Gazer\obj\Debug\SearchListItem.g.cs
 D:\Git\star-gazer\Star Gazer\obj\Debug\SearchListItem.baml
+D:\Git\star-gazer\Star Gazer\bin\Debug\Hardcodet.Wpf.TaskbarNotification.dll
+D:\Git\star-gazer\Star Gazer\bin\Debug\Hardcodet.Wpf.TaskbarNotification.pdb
+D:\Git\star-gazer\Star Gazer\bin\Debug\Hardcodet.Wpf.TaskbarNotification.xml
+D:\Git\star-gazer\Star Gazer\obj\Debug\Star Gazer.csproj.CopyComplete
+D:\Git\star-gazer\Star Gazer\obj\Debug\LoadingSplash.g.cs
+D:\Git\star-gazer\Star Gazer\obj\Debug\LoadingSplash.baml

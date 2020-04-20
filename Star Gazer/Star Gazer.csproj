@@ -34,7 +34,13 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Star_Gazer.App</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Hardcodet.Wpf.TaskbarNotification, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hardcodet.NotifyIcon.Wpf.1.0.8\lib\net451\Hardcodet.Wpf.TaskbarNotification.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -56,9 +62,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="LoadingSplash.xaml.cs">
+      <DependentUpon>LoadingSplash.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SearchListItem.xaml.cs">
       <DependentUpon>SearchListItem.xaml</DependentUpon>
     </Compile>
+    <Page Include="LoadingSplash.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -94,6 +107,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -104,6 +118,21 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="file_96px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="source_code_96px_UHU_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="console_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="folder_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="microsoft_admin_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="—Pngtree—white dot dream effect decoration_4616391.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

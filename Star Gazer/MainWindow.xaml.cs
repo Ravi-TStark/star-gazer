@@ -29,11 +29,35 @@ namespace Star_Gazer
     /// </summary>
     public partial class MainWindow : Window
     {
+        public List<SearchListItem> Lst = new List<SearchListItem>();
         public MainWindow()
         {
             InitializeComponent();
+            this.Visibility = Visibility.Hidden;
+            tIcon.Visibility = Visibility.Hidden;
+            tIcon.IconSource = this.Icon;
+            foreach (string fil in Directory.EnumerateFiles("C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\", "*.lnk", SearchOption.AllDirectories))
+            {
+                var item = new SearchListItem();
+                item.Width = listBox.Width - 35;
+                item.label.Content = System.IO.Path.GetFileNameWithoutExtension(fil);
+                item.label2.Visibility = Visibility.Visible;
+                item.label2.Content = Directory.GetParent(fil);
+                item.apppath = (fil);
+                item.image.Source = GetIcon(GetShortcutTarget(item.apppath));
+                if(item.image.Source == null)
+                {
+                    item.image.Source = GetIcon(item.apppath);
+                }
+                Lst.Add(item);
+             }
+            foreach(SearchListItem item in Lst)
+            {
+                listBox.Items.Add(item);
+            }
+            tIcon.Visibility = Visibility.Visible;
         }
-        public List<string> itms = new List<string>();
+
         protected override void OnPreviewKeyDown(System.Windows.Input.KeyEventArgs e)
         {
             base.OnPreviewKeyDown(e);
@@ -59,7 +83,7 @@ namespace Star_Gazer
         {
             if(e.Key==Key.Escape)
             {
-                Close();
+                this.Visibility = Visibility.Hidden;
             }
             if(label.Visibility == Visibility.Visible)
             {
@@ -93,103 +117,106 @@ namespace Star_Gazer
             else
             {
                 listBox.Items.Clear();
-                itms.Clear();
-                /*string uninstallKey = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall";
-                using (RegistryKey rk = Registry.LocalMachine.OpenSubKey(uninstallKey))
+                foreach (SearchListItem item in Lst)
                 {
-                    foreach (string skName in rk.GetSubKeyNames())
+                    listBox.Items.Add(item);
+                }
+                listBox.ScrollIntoView(Lst[0]);
+                    /*string uninstallKey = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall";
+                    using (RegistryKey rk = Registry.LocalMachine.OpenSubKey(uninstallKey))
                     {
-                        using (RegistryKey sk = rk.OpenSubKey(skName))
+                        foreach (string skName in rk.GetSubKeyNames())
                         {
-                            var displayName = sk.GetValue("DisplayName");
-                            var path = sk.GetValue("DisplayIcon");
-                                SearchListItem item;
-                            if (displayName != null)
+                            using (RegistryKey sk = rk.OpenSubKey(skName))
                             {
-                                if (displayName.ToString().ToLower().Contains(textBox.Text.ToLower()))
+                                var displayName = sk.GetValue("DisplayName");
+                                var path = sk.GetValue("DisplayIcon");
+                                    SearchListItem item;
+                                if (displayName != null)
                                 {
-                                    item = new SearchListItem();
-                                    item.Width = listBox.Width - 35;
-                                    item.label.Content = displayName.ToString();
-                                    item.label2.Visibility = Visibility.Hidden;
-                                    if (path != null)
+                                    if (displayName.ToString().ToLower().Contains(textBox.Text.ToLower()))
                                     {
-                                        item.label2.Visibility = Visibility.Visible;
-                                        item.label2.Content = Directory.GetParent(path.ToString().Replace("\"",""));
-                                        item.apppath = path.ToString();
-                                        if(item.apppath.EndsWith(",0"))
+                                        item = new SearchListItem();
+                                        item.Width = listBox.Width - 35;
+                                        item.label.Content = displayName.ToString();
+                                        item.label2.Visibility = Visibility.Hidden;
+                                        if (path != null)
                                         {
-                                            item.apppath = path.ToString().Replace(",0", "");
+                                            item.label2.Visibility = Visibility.Visible;
+                                            item.label2.Content = Directory.GetParent(path.ToString().Replace("\"",""));
+                                            item.apppath = path.ToString();
+                                            if(item.apppath.EndsWith(",0"))
+                                            {
+                                                item.apppath = path.ToString().Replace(",0", "");
+                                            }
+                                        }
+                                        if (System.IO.Path.GetExtension(item.apppath) == ".exe")
+                                        {
+                                            item.image.Source = GetIcon(item.apppath);
+                                            listBox.Items.Add(item);
+                                            itms.Add(item.apppath);
                                         }
                                     }
-                                    if (System.IO.Path.GetExtension(item.apppath) == ".exe")
-                                    {
-                                        item.image.Source = GetIcon(item.apppath);
-                                        listBox.Items.Add(item);
-                                        itms.Add(item.apppath);
-                                    }
                                 }
                             }
                         }
-                    }
 
-                }
-                //
-                string uninstallKey = @"SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths";
-                using (RegistryKey rk = Registry.LocalMachine.OpenSubKey(uninstallKey))
-                {
-                    foreach (string skName in rk.GetSubKeyNames())
+                    }
+                    //
+                    string uninstallKey = @"SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths";
+                    using (RegistryKey rk = Registry.LocalMachine.OpenSubKey(uninstallKey))
                     {
-                        using (RegistryKey sk = rk.OpenSubKey(skName))
+                        foreach (string skName in rk.GetSubKeyNames())
                         {
-                            var displayName = sk.GetValue("");
-                            var path = sk.GetValue("Path");
-                            SearchListItem item;
-                            if (displayName != null)
+                            using (RegistryKey sk = rk.OpenSubKey(skName))
                             {
-                                if (displayName.ToString().ToLower().Contains(textBox.Text.ToLower()))
+                                var displayName = sk.GetValue("");
+                                var path = sk.GetValue("Path");
+                                SearchListItem item;
+                                if (displayName != null)
                                 {
-                                    item = new SearchListItem();
-                                    item.Width = listBox.Width - 35;
-                                    item.label.Content = GetAppName(displayName.ToString().Replace("\"", ""));
-                                    item.label2.Visibility = Visibility.Hidden;
-                                    if (path != null)
+                                    if (displayName.ToString().ToLower().Contains(textBox.Text.ToLower()))
                                     {
-                                        item.label2.Visibility = Visibility.Visible;
-                                        item.label2.Content = path.ToString();
-                                        item.apppath = displayName.ToString().Replace("\"", "");
-                                    }
-                                    else
-                                    {
-                                        item.label2.Visibility = Visibility.Visible;
-                                        item.label2.Content = Directory.GetParent(displayName.ToString().Replace("\"", ""));
-                                        item.apppath = displayName.ToString().Replace("\"", "");
-                                    }
-                                    item.image.Source = GetIcon(item.apppath);
-                                    if (!itms.Contains(item.apppath) && File.Exists(item.apppath))
-                                    {
-                                        //itms.Add(item.apppath);
-                                        //listBox.Items.Add(item);
+                                        item = new SearchListItem();
+                                        item.Width = listBox.Width - 35;
+                                        item.label.Content = GetAppName(displayName.ToString().Replace("\"", ""));
+                                        item.label2.Visibility = Visibility.Hidden;
+                                        if (path != null)
+                                        {
+                                            item.label2.Visibility = Visibility.Visible;
+                                            item.label2.Content = path.ToString();
+                                            item.apppath = displayName.ToString().Replace("\"", "");
+                                        }
+                                        else
+                                        {
+                                            item.label2.Visibility = Visibility.Visible;
+                                            item.label2.Content = Directory.GetParent(displayName.ToString().Replace("\"", ""));
+                                            item.apppath = displayName.ToString().Replace("\"", "");
+                                        }
+                                        item.image.Source = GetIcon(item.apppath);
+                                        if (!itms.Contains(item.apppath) && File.Exists(item.apppath))
+                                        {
+                                            //itms.Add(item.apppath);
+                                            //listBox.Items.Add(item);
+                                        }
                                     }
                                 }
                             }
                         }
-                    }
-                }*/
+                    }*/
                 //
-                foreach (string fil in Directory.EnumerateFiles("C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\", "*.lnk", SearchOption.AllDirectories))
+                var itms = listBox.Items;
+                var toBeRemoved = new List<SearchListItem>();
+                foreach (SearchListItem item in itms)
                 {
-                    var item = new SearchListItem();
-                    item.Width = listBox.Width - 35;
-                    item.label.Content = System.IO.Path.GetFileNameWithoutExtension(fil);
-                    item.label2.Visibility = Visibility.Visible;
-                    item.apppath = fil;
-                    item.label2.Content = Directory.GetParent(item.apppath);
-                    item.image.Source = GetIcon(item.apppath);
-                    if (item.label.Content.ToString().ToLower().Contains(textBox.Text.ToLower()) || System.IO.Path.GetFileNameWithoutExtension(item.apppath).ToLower().Contains(textBox.Text.ToLower()))
+                    if (!(item.label.Content.ToString().ToLower().Contains(textBox.Text.ToLower()) || System.IO.Path.GetFileNameWithoutExtension(item.apppath).ToLower().Contains(textBox.Text.ToLower())))
                     {
-                        listBox.Items.Add(item);
+                        toBeRemoved.Add(item);
                     }
+                }
+                foreach( SearchListItem item in toBeRemoved)
+                {
+                    listBox.Items.Remove(item);
                 }
                 //
                 if (listBox.Items.Count == 0)
@@ -218,7 +245,23 @@ namespace Star_Gazer
             if (e.Key == Key.Enter)
             {
                 SearchListItem tmp = (SearchListItem)listBox.SelectedItem;
-                tmp.Click();
+                if (tmp != null)
+                {
+                    if (tmp.label.Content.ToString() != "No match found")
+                    {
+                        tmp.Click();
+                    }
+                    else
+                    {
+                        SystemSounds.Exclamation.Play();
+                    }
+                }
+                listBox.SelectedIndex = -1;
+            }
+            if ((e.Key==Key.Up && listBox.SelectedIndex == 0) || e.Key == Key.Left || e.Key == Key.Right)
+            {
+                textBox.Focus();
+                listBox.SelectedIndex = - 1;
             }
         }
 
@@ -231,21 +274,38 @@ namespace Star_Gazer
             }
             return "";
         }
-
+        int i = 0;
         private void textBox_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.Key == Key.Enter)
+            if(e.Key == Key.Enter && ((Keyboard.Modifiers & ModifierKeys.Control) > 0) && textBox.IsFocused)
             {
-                SearchListItem tmp = (SearchListItem)listBox.Items[0];
-                if(tmp.label.Content.ToString() != "No match found")
-                {
-                    tmp.Click();
-                }
-                else
-                {
-                    SystemSounds.Exclamation.Play();
-                    this.Close();
-                }
+                listBox.Focus();
+                listBox.SelectedIndex = 0;
+                SearchListItem tmp = (SearchListItem)listBox.SelectedItem;
+                tmp.button_Copy1.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+                System.Threading.Thread.Sleep(100);
+                listBox.SelectedIndex = -1;
+                listBox.SelectedIndex = -1;
+                textBox.Text = "";
+                textBox.Focus();
+            }
+            else if(e.Key == Key.Enter && textBox.IsFocused)
+            {
+                listBox.Focus();
+                listBox.SelectedIndex = 0;
+                SearchListItem tmp = (SearchListItem)listBox.SelectedItem;
+                tmp.Click();
+                listBox.SelectedIndex = -1;
+                listBox.SelectedIndex = -1;
+                textBox.Text = "";
+                textBox.Focus();
+            }
+            i++;
+            //tmp.button_Copy1.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+            listBox.SelectedIndex = -1;
+            if (e.Key == Key.Down)
+            {
+                listBox.Focus();
             }
         }
         private string GetShortcutTarget(string file)
@@ -304,6 +364,53 @@ namespace Star_Gazer
             {
                 return "";
             }
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            MenuItem tmp = (MenuItem)sender;
+            if (this.Visibility == Visibility.Hidden)
+            {
+                this.Visibility = Visibility.Visible;
+                tmp.Header = "Hide Star Gazer";
+            }
+            else
+            {
+                this.Visibility = Visibility.Hidden;
+                tmp.Header = "Show Star Gazer";
+            }
+        }
+
+        private void mn2_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void sGazer_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (this.Visibility == Visibility.Visible)
+            {
+                mn1.Header = "Hide Star Gazer";
+            }
+            else
+            {
+                textBox.Text = "";
+                label.Visibility = Visibility.Visible;
+                textBox.Focus();
+                mn1.Header = "Show Star Gazer";
+            }
+        }
+
+        private void sGazer_Closing(object sender, CancelEventArgs e)
+        {
+            tIcon.Visibility = Visibility.Hidden;
+            tIcon.Dispose();
+        }
+
+        private void mn3_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start(Application.ResourceAssembly.Location);
+            Application.Current.Shutdown();
         }
     }
 }
